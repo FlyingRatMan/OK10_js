@@ -53,7 +53,7 @@ let arrBooks = [
 ]
 for (const book of arrBooks) {
     document.write(
-        `${arrBooks.name} ${arrBooks.pages} ${arrBooks.genre} ${arrBooks.authors}`
+        `${book.name} ${book.pages} ${book.genre} ${book.authors}`
     )
 }
 
