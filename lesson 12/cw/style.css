@@ -1,0 +1,21 @@
+.all {
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.post {
+    width: 100%;
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 10px;
+}
+
+.post h4,
+.post h5,
+.post p {
+    margin: 3px;
+}

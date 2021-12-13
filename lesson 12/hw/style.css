@@ -1,0 +1,37 @@
+.all {
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.post {
+    width: 210px;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid grey;
+}
+
+.post h4,
+.post h5,
+.post p {
+    margin: 5px;
+}
+
+.comment {
+    width: 100%;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid grey;
+}
+
+.comment h4,
+.comment h5,
+.comment p {
+    margin: 5px;
+}
