@@ -4,9 +4,10 @@ const urlUserId = url.searchParams.get('user_id');
 fetch(`https://jsonplaceholder.typicode.com/users/${urlUserId}`)
     .then(response => response.json())
     .then(user => {
-        for (const userKey in user) {
-            const userDiv = document.createElement('div');
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('user-div__details');
 
+        for (const userKey in user) {
             if (userKey !== 'address' && userKey !== 'company') {
                 const userElem = document.createElement('div');
                 userElem.append(userKey + ': ' + user[userKey]);
@@ -41,14 +42,18 @@ fetch(`https://jsonplaceholder.typicode.com/users/${urlUserId}`)
 
         const postsBtn = document.createElement('button');
         postsBtn.append('Posts of current user');
+        postsBtn.classList.add('user-btn__posts');
 
         postsBtn.onclick = function () {
             fetch(`https://jsonplaceholder.typicode.com/users/${urlUserId}/posts`)
                 .then(response => response.json())
                 .then(posts => {
                     const postsDiv = document.createElement('div');
+                    postsDiv.classList.add('user-posts');
 
                     for (const post of posts) {
+                        const postDiv = document.createElement('div');
+
                         const postTitle = document.createElement('h4');
                         postTitle.append(post.title);
                         const postBtn = document.createElement('button');
@@ -57,11 +62,11 @@ fetch(`https://jsonplaceholder.typicode.com/users/${urlUserId}`)
                         btnLink.append('Show details');
                         postBtn.append(btnLink);
 
-                        postsDiv.append(postTitle, postBtn);
+                        postDiv.append(postTitle, postBtn);
+                        postsDiv.append(postDiv);
                     }
                     document.body.append(postsDiv);
                 })
         }
-
-        document.body.append(postsBtn);
+        userDiv.append(postsBtn);
     })

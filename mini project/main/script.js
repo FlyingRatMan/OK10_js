@@ -3,6 +3,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => {
         for (const user of users) {
             const userDiv = document.createElement('div');
+            userDiv.classList.add('user-div');
 
             const userId = document.createElement('h2');
             userId.append(user.id);
@@ -14,11 +15,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
             btnLink.setAttribute('href', `../users/user-details.html?user_id=${user.id}`);
             btnLink.append('Show details');
             userBtn.append(btnLink);
-
-            userBtn.onclick = function (e) {
-                console.log(e)
-                console.log(e.target.parentElement.previousElementSibling.previousElementSibling)
-            }
 
             userDiv.append(userId, userName, userBtn);
             document.body.append(userDiv);
